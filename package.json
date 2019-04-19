@@ -17,6 +17,9 @@
     "xcode-select",
     "check"
   ],
+  "bin": {
+    "xcodeversion": "./bin/cli.js"
+  },
   "main": "lib/index.js",
   "files": [
     "lib",
@@ -42,6 +45,7 @@
   "devDependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-flow": "^7.0.0",
     "babel-eslint": "^10.0.1",
