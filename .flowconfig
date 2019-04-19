@@ -1,6 +1,10 @@
 [ignore]
+.*/bin
+.*/node_modules
+.*/lib
 
 [include]
+flow-typed
 
 [libs]
 
