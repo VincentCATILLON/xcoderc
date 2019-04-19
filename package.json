@@ -1,0 +1,58 @@
+{
+  "name": "xcodeversion",
+  "version": "0.0.1",
+  "description": "Use a dotfile to specify, check and use Xcode version of your project.",
+  "homepage": "https://github.com/vincentcatillon/xcodeversion",
+  "bugs": {
+    "url": "https://github.com/vincentcatillon/xcodeversion/issues",
+    "email": "contact@vincent-catillon.fr"
+  },
+  "keywords": [
+    "xcode",
+    "xcodeversion",
+    "xcodeversionrc",
+    "version",
+    "lock",
+    "version",
+    "xcodebuild",
+    "xcode-select",
+    "check"
+  ],
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "npm run lint && npm run flow",
+    "lint": "eslint src --ext .js,.json",
+    "flow": "flow",
+    "prepare": "npm run build:js && npm run build:types",
+    "build:js": "babel src --out-dir lib -s --copy-files",
+    "build:types": "flow-copy-source src lib"
+  },
+  "contributors": [
+    "Vincent Catillon <contact@vincent-catillon.fr>"
+  ],
+  "author": "Vincent Catillon",
+  "dependencies": {
+    "node-emoji": "^1.10.0",
+    "pkg-dir": "^4.1.0",
+    "shelljs": "^0.8.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-i-am-meticulous": "^11.0.0",
+    "eslint-import-resolver-babel-module": "^5.0.1",
+    "eslint-plugin-flowtype": "^3.6.1",
+    "eslint-plugin-import": "^2.17.2",
+    "flow-bin": "0.75",
+    "flow-copy-source": "^2.0.3"
+  }
+}

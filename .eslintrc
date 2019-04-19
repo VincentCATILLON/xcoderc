@@ -1,0 +1,39 @@
+{
+  "env": {
+    "es6": true
+  },
+  "extends": [
+    "eslint-config-i-am-meticulous/flow"
+  ],
+  "settings": {
+    "import/resolver": {
+      "babel-module": {
+        "extensions": [
+          ".js",
+          ".json"
+        ]
+      }
+    }
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": "off",
+    "flowtype/no-mutable-array": "off",
+    "flowtype/require-exact-type": "off",
+    "flowtype/no-unused-expressions": "off",
+    "flowtype/no-dupe-keys": "off",
+    "flowtype/require-valid-file-annotation": [
+      "error",
+      "always",
+      {
+        "annotationStyle": "line"
+      }
+    ],
+    "import/no-namespace": "off",
+    "import/max-dependencies": [
+      "error",
+      {
+        "max": 20
+      }
+    ]
+  }
+}
