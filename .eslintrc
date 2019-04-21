@@ -1,10 +1,13 @@
 {
   "env": {
-    "es6": true
+    "es6": true,
+    "jest/globals": true
   },
   "extends": [
-    "eslint-config-i-am-meticulous/flow"
+    "eslint-config-i-am-meticulous/flow",
+    "plugin:jest/recommended"
   ],
+  "plugins": ["jest"],
   "settings": {
     "import/resolver": {
       "babel-module": {
@@ -16,6 +19,8 @@
     }
   },
   "rules": {
+    "import/no-named-as-default": "off",
+    "import/no-named-as-default-member": "off",
     "import/no-extraneous-dependencies": "off",
     "flowtype/no-mutable-array": "off",
     "flowtype/require-exact-type": "off",

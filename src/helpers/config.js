@@ -7,15 +7,15 @@ import pkgDir from 'pkg-dir';
 
 import type {Path, Version} from '../_types';
 
-export const CONFIG_FILE_NAME = '.xcodeversionrc';
+const CONFIG_FILE_NAME = '.xcodeversionrc';
 
-const getFilePath = async (): Promise<Path> => {
+export const getFilePath = async (): Promise<Path> => {
   const rootDir = await pkgDir(__dirname);
 
   return path.join(rootDir, CONFIG_FILE_NAME);
 }
 
-const getVersion = async (): Promise<Version> => {
+export const getVersion = async (): Promise<Version> => {
   const filePath = await getFilePath();
 
   if (!fs.existsSync(filePath)) {

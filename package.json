@@ -26,7 +26,8 @@
     "README.md"
   ],
   "scripts": {
-    "test": "npm run lint && npm run flow",
+    "test": "npm run -s test:unit && npm run -s lint && npm run -s flow",
+    "test:unit": "jest",
     "lint": "eslint src --ext .js,.json",
     "flow": "flow",
     "prepare": "npm run build:js && npm run build:types",
@@ -46,8 +47,10 @@
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-transform-runtime": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-flow": "^7.0.0",
+    "@babel/runtime": "^7.4.3",
     "babel-eslint": "^10.0.1",
     "babel-plugin-module-resolver": "^3.2.0",
     "eslint": "^5.16.0",
@@ -55,7 +58,10 @@
     "eslint-import-resolver-babel-module": "^5.0.1",
     "eslint-plugin-flowtype": "^3.6.1",
     "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jest": "^22.4.1",
     "flow-bin": "0.75",
-    "flow-copy-source": "^2.0.3"
+    "flow-copy-source": "^2.0.3",
+    "jest": "^24.7.1",
+    "mock-fs": "^4.8.0"
   }
 }

@@ -4,28 +4,29 @@ import emoji from 'node-emoji';
 
 import config from '../helpers/config';
 import xcode from '../helpers/xcode';
-import type {Logger} from '../_types';
+import {log} from '../helpers/logger';
 
-const use = async (logger: Logger) => {
+export const check = async (): Promise<boolean> => {
   const lockedVersion = await config.getVersion();
   const paths = await xcode.fetchPaths();
   const versions = await xcode.getVersions(paths);
   const currentVersion = await xcode.getCurrentVersion();
 
   if (currentVersion === lockedVersion) {
-    logger.log(`${emoji.get('rocket')} Xcode version ${lockedVersion} is already used.`);
-    return;
+    log(`${emoji.get('rocket')} Xcode version ${lockedVersion} is already used.`);
+
+    return true;
   }
 
   if (versions.hasOwnProperty(lockedVersion)) {
     throw new Error(
       `${emoji.get(
         'no_entry'
-      )} Xcode version ${lockedVersion} is not used yet. Please run: xcoderc use`
+      )} Xcode version ${lockedVersion} is not used yet. Please run: xcodeversion use`
     );
   }
 
-  const availableVersions = versions ? `[${Object.keys(versions).join(', ')}]` : '-';
+  const availableVersions = Object.keys(versions).length > 0 ? `[${Object.keys(versions).join(', ')}]` : '-';
   throw new Error(
     `${emoji.get(
       'x'
@@ -33,4 +34,4 @@ const use = async (logger: Logger) => {
   );
 };
 
-export default use;
+export default check;

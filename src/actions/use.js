@@ -4,18 +4,23 @@ import emoji from 'node-emoji';
 
 import config from '../helpers/config';
 import xcode from '../helpers/xcode';
-import type {Logger} from '../_types';
+import {log} from '../helpers/logger';
 
-const use = async (logger: Logger) => {
+export const use = async (): Promise<boolean> => {
   const lockedVersion = await config.getVersion();
   const paths = await xcode.fetchPaths();
   const versions = await xcode.getVersions(paths);
   let currentVersion = await xcode.getCurrentVersion();
 
   if (currentVersion === lockedVersion) {
-    logger.log(`${emoji.get('rocket')} Xcode version ${lockedVersion} is already used.`);
-    return;
+    log(`${emoji.get('rocket')} Xcode version ${lockedVersion} is already used.`);
+
+    return true;
   }
+
+  log(
+    `${emoji.get('hot_pepper')}  This command must be run as root, fill your password if prompted.`
+  );
 
   currentVersion = await xcode.select(versions[lockedVersion]);
 
@@ -24,7 +29,9 @@ const use = async (logger: Logger) => {
     throw new Error(`${emoji.get('x')} Xcode version has not been set. Try yourself: ${command}`);
   }
 
-  logger.log(`${emoji.get('white_check_mark')} Xcode version ${currentVersion} is now used.`);
+  log(`${emoji.get('white_check_mark')} Xcode version ${currentVersion} is now used.`);
+
+  return true;
 };
 
 export default use;

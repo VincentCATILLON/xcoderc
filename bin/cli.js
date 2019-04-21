@@ -4,12 +4,12 @@
 
 'use strict';
 
-const lib = require('../lib');
+const lib = require('../lib').default;
 
 const [,, ...args] = process.argv;
 
 try {
-  lib(args[0], console);
+  lib(args[0]);
 
   process.exit(0);
 } catch (e) {
