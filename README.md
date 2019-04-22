@@ -12,29 +12,33 @@ npm install xcodeversion
 yarn add xcodeversion
 ```
 
-## Usage
+## Prerequisite
 
-Create a `.xcodeversionrc` file on your project root:
+You need a `.xcodeversionrc` file on your project root to lock the Xcode version.
 
 ```console
-xcodeversion init
+xcodeversion --init
 ```
 
+For your information, the file content should look like: `9.4`
+
 _**Note**: This will create a .xcodeversionrc file with your Xcode current version_
+
+## Usage
 
 ##### Check
 
 To check that your Xcode version matches the current one specified in `.xcodeversionrc`:
 
 ```console
-xcodeversion check
+xcodeversion
 ```
 
 or in your `package.json`:
 
 ```json
 {
-  "postinstall": "xcodeversion check"
+  "postinstall": "xcodeversion"
 }
 ```
 
@@ -43,9 +47,22 @@ or in your `package.json`:
 To use the version specified in your `.xcodeversionrc` file:
 
 ```console
-xcodeversion use
+xcodeversion --use
 ```
 
 _**Note**: This commands needs to be root._
 
-## Available versions
+## Example versions (not exhaustive)
+
+- 9
+- 9.0.1
+- 9.1
+- 9.2
+- 9.3
+- 9.3.1
+- 9.4
+- 9.4.1
+- 10
+- 10.1
+- 10.2
+- 10.2.1

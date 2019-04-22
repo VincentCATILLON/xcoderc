@@ -8,4 +8,4 @@ export type Versions = {
   [Version]: Path
 };
 
-export type Command = 'check' | 'init' | 'use';
+export type Command = 'init' | 'use';
