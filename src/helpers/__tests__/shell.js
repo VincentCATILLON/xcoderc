@@ -10,7 +10,7 @@ describe('Shell', () => {
   describe('execute', () => {
     it('should return command result', async () => {
       const shelljs = require('shelljs');
-      mock(shelljs).exec.mockImplementation(command => {
+      mock(shelljs).exec.mockImplementationOnce(command => {
         expect(command).toEqual('echo "foo"');
 
         return {

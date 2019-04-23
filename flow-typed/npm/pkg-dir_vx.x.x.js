@@ -1,7 +1,8 @@
 // @flow
 
 declare module 'pkg-dir' {
-  declare type Module = string => Promise<string>;
-
-  declare export default Module
+  declare module.exports: {
+    string: Promise<string | void>;
+    sync(string): string | void;
+  };
 }

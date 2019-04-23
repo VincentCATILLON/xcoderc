@@ -27,7 +27,7 @@
   ],
   "scripts": {
     "test": "npm run -s test:unit && npm run -s lint && npm run -s flow",
-    "test:unit": "jest",
+    "test:unit": "jest src",
     "lint": "eslint src --ext .js,.json",
     "flow": "flow",
     "prepare": "npm run build:js && npm run build:types",

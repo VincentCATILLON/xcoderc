@@ -4,21 +4,21 @@ import mockFs from 'mock-fs';
 
 import {mock} from '../../__mocks__';
 
-jest.mock('pkg-dir');
+jest.mock('pkg-dir', () => ({
+  sync: jest.fn()
+}));
 
 describe('Config', () => {
   const mockRootDir = '/foo/bar/baz';
 
-  beforeAll(() => {
-    const pkgDir = require('pkg-dir');
-    mock(pkgDir).mockImplementation(async arg => {
-      expect(arg).toMatch(/\/src\/helpers/)
-      return mockRootDir;
-    });
-  });
-
   describe('getFilePath', () => {
     it('should return file path', async () => {
+      const {sync} = require('pkg-dir');
+      mock(sync).mockImplementationOnce(arg => {
+        expect(arg).toMatch(/\/(src|lib)\/helpers/);
+        return mockRootDir;
+      });
+
       const {getFilePath} = require('../config');
 
       const result = await getFilePath();
@@ -26,15 +26,42 @@ describe('Config', () => {
 
       expect(result).toEqual(expected);
     });
+
+    it('should throw error if root dir is not found', () => {
+      const {sync} = require('pkg-dir');
+      mock(sync).mockImplementationOnce(arg => {
+        expect(arg).toMatch(/\/(src|lib)\/helpers/);
+        return;
+      });
+
+      const {getFilePath} = require('../config');
+
+      const result = getFilePath();
+
+      expect(result).rejects.toThrow(':x: Project root not found.');
+    });
+
+    afterEach(() => {
+      const {sync} = require('pkg-dir');
+      mock(sync).mockClear();
+    });
   });
 
   describe('getVersion', () => {
+    beforeAll(() => {
+      const {sync} = require('pkg-dir');
+      mock(sync).mockImplementation(arg => {
+        expect(arg).toMatch(/\/(src|lib)\/helpers/);
+        return mockRootDir;
+      });
+    });
+
     it('should throw error on file not found', async () => {
       const {getVersion} = require('../config');
 
       const result = getVersion();
 
-      await expect(result).rejects.toThrow(`Xcode version file (.xcodeversionrc) not found.`);
+      await expect(result).rejects.toThrow(`:x: Xcode version file (.xcodeversionrc) not found.`);
     });
 
     it('should throw error on empty file', async () => {
@@ -45,7 +72,7 @@ describe('Config', () => {
 
       const result = getVersion();
 
-      await expect(result).rejects.toThrow(`Xcode version file (.xcodeversionrc) is empty.`);
+      await expect(result).rejects.toThrow(`:x: Xcode version file (.xcodeversionrc) is empty.`);
     });
 
     it('should return version', async () => {
@@ -61,5 +88,10 @@ describe('Config', () => {
     });
 
     afterEach(() => mockFs.restore());
+
+    afterAll(() => {
+      const {sync} = require('pkg-dir');
+      mock(sync).mockClear();
+    });
   });
 });

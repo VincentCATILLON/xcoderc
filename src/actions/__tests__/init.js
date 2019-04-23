@@ -21,11 +21,11 @@ describe('Init', () => {
     const {getFilePath} = require('../../helpers/config');
     const {getCurrentVersion} = require('../../helpers/xcode');
     const {log} = require('../../helpers/logger');
-    mock(getFilePath).mockImplementation(async (...args) => {
+    mock(getFilePath).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
       return '/foo/bar/baz/.xcodeversionrc';
     });
-    mock(getCurrentVersion).mockImplementation(async (...args) => {
+    mock(getCurrentVersion).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
       return;
     });
@@ -42,11 +42,11 @@ describe('Init', () => {
     const {getFilePath} = require('../../helpers/config');
     const {getCurrentVersion} = require('../../helpers/xcode');
     const {log} = require('../../helpers/logger');
-    mock(getFilePath).mockImplementation(async (...args) => {
+    mock(getFilePath).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
       return '/foo/bar/baz/.xcodeversionrc';
     });
-    mock(getCurrentVersion).mockImplementation(async (...args) => {
+    mock(getCurrentVersion).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
       return '10.2';
     });
@@ -63,11 +63,11 @@ describe('Init', () => {
     const {getFilePath} = require('../../helpers/config');
     const {getCurrentVersion} = require('../../helpers/xcode');
     const {log} = require('../../helpers/logger');
-    mock(getFilePath).mockImplementation(async (...args) => {
+    mock(getFilePath).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
       return '/foo/bar/baz/.xcodeversionrc';
     });
-    mock(getCurrentVersion).mockImplementation(async (...args) => {
+    mock(getCurrentVersion).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
       return '10.2';
     });

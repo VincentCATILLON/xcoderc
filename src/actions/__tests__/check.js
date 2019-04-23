@@ -21,22 +21,22 @@ describe('Check', () => {
     const {getVersion} = require('../../helpers/config');
     const {fetchPaths, getVersions, getCurrentVersion} = require('../../helpers/xcode');
     const {log} = require('../../helpers/logger');
-    mock(getVersion).mockImplementation(async (...args) => {
+    mock(getVersion).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
       return '9.0';
     });
-    mock(fetchPaths).mockImplementation(async (...args) => {
+    mock(fetchPaths).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
       return ['/foo/bar', '/baz'];
     });
-    mock(getVersions).mockImplementation(async paths => {
+    mock(getVersions).mockImplementationOnce(async paths => {
       expect(paths).toEqual(['/foo/bar', '/baz'])
       return {
         '9.0': '/foo/bar',
         '10.2': '/baz'
       };
     });
-    mock(getCurrentVersion).mockImplementation(async (...args) => {
+    mock(getCurrentVersion).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
       return '9.0';
     });
@@ -53,22 +53,22 @@ describe('Check', () => {
     const {getVersion} = require('../../helpers/config');
     const {fetchPaths, getVersions, getCurrentVersion} = require('../../helpers/xcode');
     const {log} = require('../../helpers/logger');
-    mock(getVersion).mockImplementation(async (...args) => {
+    mock(getVersion).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
       return '9.0';
     });
-    mock(fetchPaths).mockImplementation(async (...args) => {
+    mock(fetchPaths).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
       return ['/foo/bar', '/baz'];
     });
-    mock(getVersions).mockImplementation(async paths => {
+    mock(getVersions).mockImplementationOnce(async paths => {
       expect(paths).toEqual(['/foo/bar', '/baz'])
       return {
         '9.0': '/foo/bar',
         '10.2': '/baz'
       };
     });
-    mock(getCurrentVersion).mockImplementation(async (...args) => {
+    mock(getCurrentVersion).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
       return '10.2';
     });
@@ -85,22 +85,22 @@ describe('Check', () => {
     const {getVersion} = require('../../helpers/config');
     const {fetchPaths, getVersions, getCurrentVersion} = require('../../helpers/xcode');
     const {log} = require('../../helpers/logger');
-    mock(getVersion).mockImplementation(async (...args) => {
+    mock(getVersion).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
       return '8.0';
     });
-    mock(fetchPaths).mockImplementation(async (...args) => {
+    mock(fetchPaths).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
       return ['/foo/bar', '/baz'];
     });
-    mock(getVersions).mockImplementation(async paths => {
+    mock(getVersions).mockImplementationOnce(async paths => {
       expect(paths).toEqual(['/foo/bar', '/baz'])
       return {
         '9.0': '/foo/bar',
         '10.2': '/baz'
       };
     });
-    mock(getCurrentVersion).mockImplementation(async (...args) => {
+    mock(getCurrentVersion).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
       return '10.2';
     });
@@ -117,19 +117,19 @@ describe('Check', () => {
     const {getVersion} = require('../../helpers/config');
     const {fetchPaths, getVersions, getCurrentVersion} = require('../../helpers/xcode');
     const {log} = require('../../helpers/logger');
-    mock(getVersion).mockImplementation(async (...args) => {
+    mock(getVersion).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
       return '8.0';
     });
-    mock(fetchPaths).mockImplementation(async (...args) => {
+    mock(fetchPaths).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
       return [];
     });
-    mock(getVersions).mockImplementation(async paths => {
+    mock(getVersions).mockImplementationOnce(async paths => {
       expect(paths).toEqual([])
       return {};
     });
-    mock(getCurrentVersion).mockImplementation(async (...args) => {
+    mock(getCurrentVersion).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
       return '10.2';
     });
