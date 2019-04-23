@@ -2,7 +2,7 @@
 
 import emoji from 'node-emoji';
 
-import type {Path, Version, Versions} from '../_types';
+import type {Path, Version, Versions} from '../types';
 
 import shell from './shell';
 

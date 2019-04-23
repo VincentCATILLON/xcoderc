@@ -1,6 +1,6 @@
 // @flow
 
-import type {Command} from './_types';
+import type {Command} from './types';
 
 export const COMMAND: {
   ['INIT' | 'USE']: Command

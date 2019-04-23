@@ -1,5 +1,7 @@
 // @flow
 
+import {mock} from '../../__mocks__';
+
 jest.mock('shelljs', () => ({
   exec: jest.fn()
 }));
@@ -8,7 +10,7 @@ describe('Shell', () => {
   describe('execute', () => {
     it('should return command result', async () => {
       const shelljs = require('shelljs');
-      shelljs.exec.mockImplementation(command => {
+      mock(shelljs).exec.mockImplementation(command => {
         expect(command).toEqual('echo "foo"');
 
         return {
@@ -16,7 +18,7 @@ describe('Shell', () => {
         };
       });
 
-      const {execute} = require('./shell');
+      const {execute} = require('../shell');
 
       const result = await execute('echo "foo"');
 

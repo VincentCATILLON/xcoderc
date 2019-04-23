@@ -5,7 +5,7 @@ import fs from 'fs';
 
 import pkgDir from 'pkg-dir';
 
-import type {Path, Version} from '../_types';
+import type {Path, Version} from '../types';
 
 const CONFIG_FILE_NAME = '.xcodeversionrc';
 
