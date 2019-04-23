@@ -2,7 +2,9 @@
   <img height="400" src="https://github.com/VincentCATILLON/xcodeversion/raw/master/.github/demo.gif" alt="Xcodeversion">
 </p> -->
 
-[![CircleCI](https://circleci.com/gh/VincentCATILLON/xcodeversion.svg?style=svg)](https://circleci.com/gh/VincentCATILLON/xcodeversion)
+<!-- @todo remove once public -->
+[![CircleCI](https://circleci.com/gh/VincentCATILLON/xcodeversion.svg?style=svg&circle-token=bef9f3f5b8ea78319a7ad86207df4d5dbbdb2e45)](https://circleci.com/gh/VincentCATILLON/xcodeversion)
+[![codecov](https://codecov.io/gh/VincentCATILLON/xcodeversion/branch/master/graph/badge.svg?token=aiXSI86rRD)](https://codecov.io/gh/VincentCATILLON/xcodeversion)
 
 ## Installation
 

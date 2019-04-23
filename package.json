@@ -26,6 +26,7 @@
     "README.md"
   ],
   "scripts": {
+    "codecov": "codecov",
     "test": "npm run -s test:unit && npm run -s lint && npm run -s flow",
     "test:unit": "jest src",
     "lint": "eslint src --ext .js,.json",
@@ -53,6 +54,7 @@
     "@babel/runtime": "^7.4.3",
     "babel-eslint": "^10.0.1",
     "babel-plugin-module-resolver": "^3.2.0",
+    "codecov": "^3.3.0",
     "eslint": "^5.16.0",
     "eslint-config-i-am-meticulous": "^11.0.0",
     "eslint-import-resolver-babel-module": "^5.0.1",
