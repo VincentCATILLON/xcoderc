@@ -41,6 +41,7 @@
   ],
   "author": "Vincent Catillon",
   "dependencies": {
+    "args": "^5.0.1",
     "chalk": "^2.4.2",
     "node-emoji": "^1.10.0",
     "pkg-dir": "^4.1.0",

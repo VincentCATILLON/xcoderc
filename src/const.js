@@ -5,10 +5,11 @@ import packageJson from '../package.json';
 import type {Command} from './types';
 
 export const COMMAND: {
-  ['INIT' | 'USE']: Command
+  ['CHECK' | 'INIT' | 'USE']: Command
 } = {
-  INIT: '--init',
-  USE: '--use'
+  CHECK: 'check',
+  INIT: 'init',
+  USE: 'use'
 };
 
 export const BINARY_NAME = Object.keys(packageJson.bin)[0];

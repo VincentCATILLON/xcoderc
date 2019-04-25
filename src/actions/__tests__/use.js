@@ -47,7 +47,7 @@ describe('Use', () => {
 
     const result = await use();
 
-    expect(log).toHaveBeenCalledWith('<blue>:rocket: Xcode version 9.0 is already used.</blue>');
+    expect(log).toHaveBeenCalledWith('<green>:rocket: Xcode version 9.0 is already used.</green>');
     expect(result).toBeTruthy();
   });
 

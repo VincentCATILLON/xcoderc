@@ -15,7 +15,7 @@ export const check = async (): Promise<boolean> => {
   const currentVersion = await xcode.getCurrentVersion();
 
   if (currentVersion === lockedVersion) {
-    log(chalk.blue(`${emoji.get('rocket')} Xcode version ${lockedVersion} is already used.`));
+    log(chalk.green(`${emoji.get('rocket')} Xcode version ${lockedVersion} is already used.`));
 
     return true;
   }

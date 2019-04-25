@@ -19,12 +19,12 @@ yarn add xcodeversion
 You need a `.xcodeversionrc` file on your project root to lock the Xcode version.
 
 ```console
-xcodeversion --init
+xcodeversion init
 ```
 
 For your information, the file content should look like: `9.4`
 
-_**Note**: This will create a .xcodeversionrc file with your Xcode current version_
+_**Note**: This will create a .xcodeversionrc file with your current Xcode version_
 
 ## Usage
 
@@ -34,6 +34,8 @@ To check that your Xcode version matches the current one specified in `.xcodever
 
 ```console
 xcodeversion
+# or
+xcodeversion white_check_mark
 ```
 
 or in your `package.json`:
@@ -49,7 +51,7 @@ or in your `package.json`:
 To use the version specified in your `.xcodeversionrc` file:
 
 ```console
-xcodeversion --use
+xcodeversion use
 ```
 
 _**Note**: This commands needs to be root._

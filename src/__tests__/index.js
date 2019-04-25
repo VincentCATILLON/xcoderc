@@ -60,7 +60,7 @@ describe('Index', () => {
     // $FlowFixMe this is to emulate an invalid command
     const result = call('coffee');
 
-    await expect(result).rejects.toThrow(':think: Unknown command: coffee');
+    await expect(result).rejects.toThrow(':question: Unknown command: coffee');
     expect(check).not.toHaveBeenCalled();
     expect(init).not.toHaveBeenCalled();
     expect(use).not.toHaveBeenCalled();
