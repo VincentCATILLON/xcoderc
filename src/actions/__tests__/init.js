@@ -81,7 +81,7 @@ describe('Init', () => {
     const result = await init();
 
     expect(result).toBeTruthy();
-    expect(log).toHaveBeenCalledWith(':tada: Xcode config file created with 10.2 (/foo/bar/baz/.xcodeversionrc).');
+    expect(log).toHaveBeenCalledWith('<green>:tada: Xcode config file created with 10.2.</green>', '(/foo/bar/baz/.xcodeversionrc)');
   });
 
   afterEach(() => {

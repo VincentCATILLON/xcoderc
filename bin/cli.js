@@ -4,13 +4,15 @@
 
 'use strict';
 
+const chalk = require('chalk');
+
 const lib = require('../lib').default;
 
 const [,, ...args] = process.argv;
 
 lib(args[0])
   .catch(e => {
-  console.error(e.message);
+  console.error(chalk.red(e.message));
 
   process.exit(1);
 });

@@ -3,6 +3,7 @@
 import path from 'path';
 import fs from 'fs';
 
+import chalk from 'chalk';
 import emoji from 'node-emoji';
 
 import config from '../helpers/config';
@@ -23,7 +24,7 @@ export const init = async (): Promise<boolean> => {
     throw new Error(`${emoji.get('x')} Xcode config file (${path.basename(configFilePath)}) not written.`)
   }
 
-  log(`${emoji.get('tada')} Xcode config file created with ${currentVersion} (${configFilePath}).`);
+  log(chalk.green(`${emoji.get('tada')} Xcode config file created with ${currentVersion}.`), `(${configFilePath})`);
 
   return true;
 };

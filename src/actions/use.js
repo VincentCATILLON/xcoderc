@@ -1,5 +1,6 @@
 // @flow
 
+import chalk from 'chalk';
 import emoji from 'node-emoji';
 
 import config from '../helpers/config';
@@ -13,13 +14,13 @@ export const use = async (): Promise<boolean> => {
   let currentVersion = await xcode.getCurrentVersion();
 
   if (currentVersion === lockedVersion) {
-    log(`${emoji.get('rocket')} Xcode version ${lockedVersion} is already used.`);
+    log(chalk.blue(`${emoji.get('rocket')} Xcode version ${lockedVersion} is already used.`));
 
     return true;
   }
 
   log(
-    `${emoji.get('hot_pepper')}  This command must be run as root, fill your password if prompted.`
+    chalk.yellow(`${emoji.get('hot_pepper')}  This command must be run as root, fill your password if prompted.`)
   );
 
   currentVersion = await xcode.select(versions[lockedVersion]);
@@ -29,7 +30,7 @@ export const use = async (): Promise<boolean> => {
     throw new Error(`${emoji.get('x')} Xcode version has not been set. Try yourself: ${command}`);
   }
 
-  log(`${emoji.get('white_check_mark')} Xcode version ${currentVersion} is now used.`);
+  log(chalk.green(`${emoji.get('white_check_mark')} Xcode version ${currentVersion} is now used.`));
 
   return true;
 };

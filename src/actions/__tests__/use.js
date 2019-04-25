@@ -47,7 +47,7 @@ describe('Use', () => {
 
     const result = await use();
 
-    expect(log).toHaveBeenCalledWith(':rocket: Xcode version 9.0 is already used.');
+    expect(log).toHaveBeenCalledWith('<blue>:rocket: Xcode version 9.0 is already used.</blue>');
     expect(result).toBeTruthy();
   });
 
@@ -88,7 +88,7 @@ describe('Use', () => {
     const result = use();
 
     await expect(result).rejects.toThrow(':x: Xcode version has not been set. Try yourself: fakecommand');
-    expect(log).toHaveBeenCalledWith(':hot_pepper:  This command must be run as root, fill your password if prompted.');
+    expect(log).toHaveBeenCalledWith('<yellow>:hot_pepper:  This command must be run as root, fill your password if prompted.</yellow>');
   });
 
   it('should return true after select succeed', async () => {
@@ -123,7 +123,7 @@ describe('Use', () => {
 
     const result = await use();
 
-    expect(log).toHaveBeenCalledWith(':white_check_mark: Xcode version 9.0 is now used.');
+    expect(log).toHaveBeenCalledWith('<green>:white_check_mark: Xcode version 9.0 is now used.</green>');
     expect(result).toBeTruthy();
   });
 

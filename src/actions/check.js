@@ -1,10 +1,12 @@
 // @flow
 
+import chalk from 'chalk';
 import emoji from 'node-emoji';
 
 import config from '../helpers/config';
 import xcode from '../helpers/xcode';
 import {log} from '../helpers/logger';
+import {BINARY_NAME} from '../const';
 
 export const check = async (): Promise<boolean> => {
   const lockedVersion = await config.getVersion();
@@ -13,7 +15,7 @@ export const check = async (): Promise<boolean> => {
   const currentVersion = await xcode.getCurrentVersion();
 
   if (currentVersion === lockedVersion) {
-    log(`${emoji.get('rocket')} Xcode version ${lockedVersion} is already used.`);
+    log(chalk.blue(`${emoji.get('rocket')} Xcode version ${lockedVersion} is already used.`));
 
     return true;
   }
@@ -22,7 +24,7 @@ export const check = async (): Promise<boolean> => {
     throw new Error(
       `${emoji.get(
         'no_entry'
-      )} Xcode version ${lockedVersion} is not used yet. Please run: xcodeversion use`
+      )} Xcode version ${lockedVersion} is not used yet. Please run: ${BINARY_NAME} use`
     );
   }
 

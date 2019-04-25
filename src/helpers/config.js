@@ -6,9 +6,8 @@ import fs from 'fs';
 import emoji from 'node-emoji';
 import pkgDir from 'pkg-dir';
 
+import {CONFIG_FILE_NAME} from '../const';
 import type {Path, Version} from '../types';
-
-const CONFIG_FILE_NAME = '.xcodeversionrc';
 
 export const getFilePath = async (): Promise<Path> => {
   const rootDir = pkgDir.sync(__dirname);
