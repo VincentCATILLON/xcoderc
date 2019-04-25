@@ -32,7 +32,7 @@
     "test:unit": "jest src",
     "lint": "eslint src --ext .js,.json",
     "flow": "flow",
-    "prepare": "npm run build:js && npm run build:types",
+    "prepare": "rm -rf lib && npm run build:js && npm run build:types",
     "build:js": "babel src --out-dir lib -s --copy-files",
     "build:types": "flow-copy-source src lib"
   },
