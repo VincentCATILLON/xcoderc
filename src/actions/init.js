@@ -23,7 +23,7 @@ export const init = async (): Promise<boolean> => {
     throw new Error(`${emoji.get('x')} Xcode config file (${path.basename(configFilePath)}) not written.`)
   }
 
-  log(`${emoji.get('tada')} Xcode config file created with ${currentVersion}.`);
+  log(`${emoji.get('tada')} Xcode config file created with ${currentVersion} (${configFilePath}).`);
 
   return true;
 };
