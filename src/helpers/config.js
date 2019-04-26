@@ -6,7 +6,7 @@ import fs from 'fs';
 import emoji from 'node-emoji';
 import pkgDir from 'pkg-dir';
 
-import {CONFIG_FILE_NAME} from '../const';
+import {CONFIG_FILE_NAME, BINARY_NAME} from '../const';
 import type {Path, Version} from '../types';
 
 export const getFilePath = async (): Promise<Path> => {
@@ -25,7 +25,7 @@ export const getVersion = async (): Promise<Version> => {
   const filePath = await getFilePath();
 
   if (!fs.existsSync(filePath)) {
-    throw new Error(`${emoji.get('x')} Xcode version file (${CONFIG_FILE_NAME}) not found.`);
+    throw new Error(`${emoji.get('x')} Xcode version file (${CONFIG_FILE_NAME}) not found. Try: ${BINARY_NAME} init`);
   }
 
   const version = fs.readFileSync(filePath, 'UTF-8').split('\n')[0];

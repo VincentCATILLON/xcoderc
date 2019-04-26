@@ -61,7 +61,7 @@ describe('Config', () => {
 
       const result = getVersion();
 
-      await expect(result).rejects.toThrow(`:x: Xcode version file (.xcodeversionrc) not found.`);
+      await expect(result).rejects.toThrow(`:x: Xcode version file (.xcodeversionrc) not found. Try: xcodeversion init`);
     });
 
     it('should throw error on empty file', async () => {
