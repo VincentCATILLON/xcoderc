@@ -35,7 +35,7 @@ To check that your Xcode version matches the current one specified in `.xcoderc`
 ```console
 xcoderc
 # or
-xcoderc white_check_mark
+xcoderc check
 ```
 
 or in your `package.json`:
