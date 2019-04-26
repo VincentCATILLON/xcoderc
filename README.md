@@ -13,9 +13,9 @@
 
 [![CircleCI](https://circleci.com/gh/VincentCATILLON/xcoderc.svg?style=shield)](https://circleci.com/gh/VincentCATILLON/xcoderc)
 [![codecov](https://codecov.io/gh/VincentCATILLON/xcoderc/branch/master/graph/badge.svg?token=aiXSI86rRD)](https://codecov.io/gh/VincentCATILLON/xcoderc)
-![types](https://img.shields.io/npm/types/xcoderc.svg?color=e8bd36)
-![code style](https://img.shields.io/badge/code_style-eslint-463fd4.svg)
-![version](https://img.shields.io/npm/v/xcoderc.svg?color=cb3837)
+[![types](https://img.shields.io/npm/types/xcoderc.svg?color=e8bd36)](https://flow.org)
+[![code style](https://img.shields.io/badge/code_style-eslint-463fd4.svg)](https://eslint.org/)
+[![version](https://img.shields.io/npm/v/xcoderc.svg?color=cb3837)](https://www.npmjs.com/package/xcoderc)
 
 ## Installation
 
