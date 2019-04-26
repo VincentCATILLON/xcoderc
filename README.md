@@ -1,5 +1,8 @@
-<p align="center" style="padding-top: 32px; padding-bottom: 32px">
-  <img height="256" src="./.github/logo.png" alt="xcoderc">
+<p align="center">
+  <br>
+  <img height="256" src="https://github.com/VincentCATILLON/xcoderc/raw/master/.github/logo.png" alt="xcoderc">
+  <br>
+  <br>
 </p>
 
 [![CircleCI](https://circleci.com/gh/VincentCATILLON/xcoderc.svg?style=svg)](https://circleci.com/gh/VincentCATILLON/xcoderc)
