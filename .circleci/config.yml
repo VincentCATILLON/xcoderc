@@ -63,8 +63,7 @@ jobs:
           command: yarn test:unit
       - run:
           name: Code coverage
-          # @todo remove once public
-          command: yarn codecov -t ${CODECOV_TOKEN}
+          command: yarn codecov
 
 workflows:
   version: 2

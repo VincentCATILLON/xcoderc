@@ -1,25 +1,24 @@
-<!-- <p align="center">
-  <img height="400" src="https://github.com/VincentCATILLON/xcoderc/raw/master/.github/demo.gif" alt="xcoderc">
-</p> -->
+<p align="center" style="padding-top: 32px; padding-bottom: 32px">
+  <img height="256" src="./.github/logo.png" alt="xcoderc">
+</p>
 
-<!-- @todo remove once public -->
-[![CircleCI](https://circleci.com/gh/VincentCATILLON/xcoderc.svg?style=svg&circle-token=bef9f3f5b8ea78319a7ad86207df4d5dbbdb2e45)](https://circleci.com/gh/VincentCATILLON/xcoderc)
+[![CircleCI](https://circleci.com/gh/VincentCATILLON/xcoderc.svg?style=svg)](https://circleci.com/gh/VincentCATILLON/xcoderc)
 [![codecov](https://codecov.io/gh/VincentCATILLON/xcoderc/branch/master/graph/badge.svg?token=aiXSI86rRD)](https://codecov.io/gh/VincentCATILLON/xcoderc)
 
 ## Installation
 
 ```console
-npm install xcoderc
+npm install --save-dev xcoderc
 # or
-yarn add xcoderc
+yarn add --dev xcoderc
 ```
 
-## Prerequisite
+## Init
 
 You need a `.xcoderc` file on your project root to lock the Xcode version.
 
 ```console
-xcoderc init
+$ xcoderc init
 ```
 
 For your information, the file content should look like: `9.4`
@@ -28,17 +27,13 @@ _**Note**: This will create a .xcoderc file with your current Xcode version_
 
 ## Usage
 
+<img src="https://github.com/VincentCATILLON/xcoderc/raw/master/.github/terminal.png" alt="xcoderc">
+
+---
+
 ##### Check
 
-To check that your Xcode version matches the current one specified in `.xcoderc`:
-
-```console
-xcoderc
-# or
-xcoderc check
-```
-
-or in your `package.json`:
+To automatize the Xcode version check specified in `.xcoderc`, you can add it to your `package.json`:
 
 ```json
 {
@@ -46,12 +41,14 @@ or in your `package.json`:
 }
 ```
 
+---
+
 ##### Use
 
 To use the version specified in your `.xcoderc` file:
 
 ```console
-xcoderc use
+$ [sudo] xcoderc use
 ```
 
 _**Note**: This commands needs to be root._
