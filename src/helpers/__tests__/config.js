@@ -15,7 +15,7 @@ describe('Config', () => {
     it('should return file path', async () => {
       const {sync} = require('pkg-dir');
       mock(sync).mockImplementationOnce(arg => {
-        expect(arg).toMatch(/\/(src|lib)\/helpers/);
+        expect(arg).toBeUndefined();
         return mockRootDir;
       });
 
@@ -30,7 +30,7 @@ describe('Config', () => {
     it('should throw error if root dir is not found', () => {
       const {sync} = require('pkg-dir');
       mock(sync).mockImplementationOnce(arg => {
-        expect(arg).toMatch(/\/(src|lib)\/helpers/);
+        expect(arg).toBeUndefined();
         return;
       });
 
@@ -51,7 +51,7 @@ describe('Config', () => {
     beforeAll(() => {
       const {sync} = require('pkg-dir');
       mock(sync).mockImplementation(arg => {
-        expect(arg).toMatch(/\/(src|lib)\/helpers/);
+        expect(arg).toBeUndefined();
         return mockRootDir;
       });
     });

@@ -21,7 +21,7 @@ yarn add --dev xcoderc
 You need a `.xcoderc` file on your project root to lock the Xcode version.
 
 ```console
-$ xcoderc init
+$ npx xcoderc init
 ```
 
 For your information, the file content should look like: `9.4`
@@ -51,7 +51,7 @@ To automatize the Xcode version check specified in `.xcoderc`, you can add it to
 To use the version specified in your `.xcoderc` file:
 
 ```console
-$ [sudo] xcoderc use
+$ [sudo] npx xcoderc use
 ```
 
 _**Note**: This commands needs to be root._

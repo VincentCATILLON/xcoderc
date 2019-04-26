@@ -10,7 +10,7 @@ import {CONFIG_FILE_NAME, BINARY_NAME} from '../const';
 import type {Path, Version} from '../types';
 
 export const getFilePath = async (): Promise<Path> => {
-  const rootDir = pkgDir.sync(__dirname);
+  const rootDir = pkgDir.sync();
 
   if (!rootDir) {
     throw new Error(`${emoji.get('x')} Project root not found.`);
