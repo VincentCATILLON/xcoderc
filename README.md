@@ -36,12 +36,32 @@ _**Note**: This will create a .xcoderc file with your current Xcode version_
 
 ##### Check
 
-To automatize the Xcode version check specified in `.xcoderc`, you can add it to your `package.json`:
+To automatize the Xcode version check, you can use it in your `package.json`, ie:
 
 ```json
 {
   "postinstall": "xcoderc"
 }
+```
+
+or you can add it before your iOS build command, ie:
+
+```json
+{
+  "prebuild:ios": "xcoderc",
+  "build:ios": "xcodebuild"
+}
+```
+
+or any script used to build your app, for example [Fastlane](https://fastlane.tools) (with [fastlane-plugin-yarn](https://github.com/joshrlesch/fastlane-plugin-yarn) plugin):
+
+```ruby
+platform :ios do
+  before_all do
+    # Define a xcode:check command in your package.json ("xcode:check": "xcoderc")
+    yarn(command: 'xcode:check', package_path: '../package.json')
+  end
+end
 ```
 
 ---
