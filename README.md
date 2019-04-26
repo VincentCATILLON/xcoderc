@@ -58,7 +58,10 @@ or any script used to build your app, for example [Fastlane](https://fastlane.to
 ```ruby
 platform :ios do
   before_all do
-    # Define a xcode:check command in your package.json ("xcode:check": "xcoderc")
+    # Define a command in your package.json like:
+    # {
+    #   "xcode:check": "xcoderc"
+    # }
     yarn(command: 'xcode:check', package_path: '../package.json')
   end
 end
