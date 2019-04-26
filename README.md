@@ -5,6 +5,12 @@
   <br>
 </p>
 
+<p align="center">
+  <i>Switching between iOS/MacOS projects <br>that use different Xcode versions won't by painful anymore.</i>
+</p>
+
+<br>
+
 [![CircleCI](https://circleci.com/gh/VincentCATILLON/xcoderc.svg?style=svg)](https://circleci.com/gh/VincentCATILLON/xcoderc)
 [![codecov](https://codecov.io/gh/VincentCATILLON/xcoderc/branch/master/graph/badge.svg?token=aiXSI86rRD)](https://codecov.io/gh/VincentCATILLON/xcoderc)
 
