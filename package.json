@@ -1,6 +1,6 @@
 {
   "name": "xcoderc",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Used to lock, check and use Xcode version in your project.",
   "homepage": "https://github.com/vincentcatillon/xcoderc",
   "bugs": {
