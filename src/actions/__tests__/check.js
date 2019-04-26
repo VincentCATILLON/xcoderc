@@ -77,7 +77,7 @@ describe('Check', () => {
 
     const result = check();
 
-    await expect(result).rejects.toThrow(':no_entry: Xcode version 9.0 is not used yet. Please run: xcodeversion use');
+    await expect(result).rejects.toThrow(':no_entry: Xcode version 9.0 is not used yet. Please run: xcoderc use');
     expect(log).not.toHaveBeenCalled();
   });
 

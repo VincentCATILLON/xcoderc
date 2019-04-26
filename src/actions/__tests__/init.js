@@ -23,7 +23,7 @@ describe('Init', () => {
     const {log} = require('../../helpers/logger');
     mock(getFilePath).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
-      return '/foo/bar/baz/.xcodeversionrc';
+      return '/foo/bar/baz/.xcoderc';
     });
     mock(getCurrentVersion).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
@@ -44,7 +44,7 @@ describe('Init', () => {
     const {log} = require('../../helpers/logger');
     mock(getFilePath).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
-      return '/foo/bar/baz/.xcodeversionrc';
+      return '/foo/bar/baz/.xcoderc';
     });
     mock(getCurrentVersion).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
@@ -55,7 +55,7 @@ describe('Init', () => {
 
     const result = init();
 
-    await expect(result).rejects.toThrow(':x: Xcode config file (.xcodeversionrc) not written.');
+    await expect(result).rejects.toThrow(':x: Xcode config file (.xcoderc) not written.');
     expect(log).not.toHaveBeenCalled();
   });
 
@@ -65,7 +65,7 @@ describe('Init', () => {
     const {log} = require('../../helpers/logger');
     mock(getFilePath).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
-      return '/foo/bar/baz/.xcodeversionrc';
+      return '/foo/bar/baz/.xcoderc';
     });
     mock(getCurrentVersion).mockImplementationOnce(async (...args) => {
       expect(args).toEqual([]);
@@ -81,7 +81,7 @@ describe('Init', () => {
     const result = await init();
 
     expect(result).toBeTruthy();
-    expect(log).toHaveBeenCalledWith('<green>:tada: Xcode config file created with 10.2.</green>', '(/foo/bar/baz/.xcodeversionrc)');
+    expect(log).toHaveBeenCalledWith('<green>:tada: Xcode config file created with 10.2.</green>', '(/foo/bar/baz/.xcoderc)');
   });
 
   afterEach(() => {

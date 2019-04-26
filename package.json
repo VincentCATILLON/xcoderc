@@ -1,24 +1,24 @@
 {
-  "name": "xcodeversion",
+  "name": "xcoderc",
   "version": "0.0.1",
-  "description": "Use a dotfile to specify, check and use Xcode version of your project.",
-  "homepage": "https://github.com/vincentcatillon/xcodeversion",
+  "description": "Used to lock, check and use Xcode version in your project.",
+  "homepage": "https://github.com/vincentcatillon/xcoderc",
   "bugs": {
-    "url": "https://github.com/vincentcatillon/xcodeversion/issues",
+    "url": "https://github.com/vincentcatillon/xcoderc/issues",
     "email": "contact@vincent-catillon.fr"
   },
   "keywords": [
     "xcode",
-    "xcodeversion",
-    "xcodeversionrc",
+    "xcoderc",
     "version",
     "lock",
     "xcodebuild",
     "xcode-select",
-    "check"
+    "check",
+    "use"
   ],
   "bin": {
-    "xcodeversion": "./bin/cli.js"
+    "xcoderc": "./bin/cli.js"
   },
   "main": "lib/index.js",
   "files": [

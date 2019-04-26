@@ -22,7 +22,7 @@ describe('Config', () => {
       const {getFilePath} = require('../config');
 
       const result = await getFilePath();
-      const expected = `${mockRootDir}/.xcodeversionrc`;
+      const expected = `${mockRootDir}/.xcoderc`;
 
       expect(result).toEqual(expected);
     });
@@ -61,24 +61,24 @@ describe('Config', () => {
 
       const result = getVersion();
 
-      await expect(result).rejects.toThrow(`:x: Xcode version file (.xcodeversionrc) not found. Try: xcodeversion init`);
+      await expect(result).rejects.toThrow(`:x: Xcode version file (.xcoderc) not found. Try: xcoderc init`);
     });
 
     it('should throw error on empty file', async () => {
       mockFs({
-        [`${mockRootDir}/.xcodeversionrc`]: ''
+        [`${mockRootDir}/.xcoderc`]: ''
       });
       const {getVersion} = require('../config');
 
       const result = getVersion();
 
-      await expect(result).rejects.toThrow(`:x: Xcode version file (.xcodeversionrc) is empty.`);
+      await expect(result).rejects.toThrow(`:x: Xcode version file (.xcoderc) is empty.`);
     });
 
     it('should return version', async () => {
       const mockVersion = '9.4';
       mockFs({
-        [`${mockRootDir}/.xcodeversionrc`]: mockVersion
+        [`${mockRootDir}/.xcoderc`]: mockVersion
       });
       const {getVersion} = require('../config');
 
