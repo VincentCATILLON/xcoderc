@@ -43,7 +43,7 @@ export const getXcodebuildPath = (path: Path): string => `${path}/Contents/Devel
 
 export const getVersion = async (path: Path): Promise<Version> => {
   const xcodebuildPath = getXcodebuildPath(path);
-  const output = await shell.execute(`${xcodebuildPath} -version`);
+  const output = await shell.execute(`"${xcodebuildPath}" -version`);
 
   const version = parseVersion(output);
 
@@ -79,7 +79,7 @@ export const getCurrentVersion = async (): Promise<Version> => {
   return version;
 };
 
-export const getSelectCommand = (path: Path): string => `sudo xcode-select -s ${path}/Contents/Developer`;
+export const getSelectCommand = (path: Path): string => `sudo xcode-select -s "${path}/Contents/Developer"`;
 
 export const select = async (path: Path): Promise<Version> => {
   await shell.execute(getSelectCommand(path));

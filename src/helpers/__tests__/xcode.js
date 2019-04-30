@@ -101,7 +101,7 @@ describe('Xcode', () => {
     it('should throw error if xcodebuild not found', async () => {
       const {execute} = require('../shell');
       mock(execute).mockImplementationOnce(async command => {
-        expect(command).toEqual('/foo/bar/baz/Contents/Developer/usr/bin/xcodebuild -version');
+        expect(command).toEqual('"/foo/bar/baz/Contents/Developer/usr/bin/xcodebuild" -version');
         return 'xcodebuild command not found';
       });
 
@@ -115,7 +115,7 @@ describe('Xcode', () => {
     it('should return version', async () => {
       const {execute} = require('../shell');
       mock(execute).mockImplementationOnce(async command => {
-        expect(command).toEqual('/foo/bar/baz/Contents/Developer/usr/bin/xcodebuild -version');
+        expect(command).toEqual('"/foo/bar/baz/Contents/Developer/usr/bin/xcodebuild" -version');
         return "Xcode 9.0\nBuild version 9A235\n";
       });
 
@@ -131,11 +131,11 @@ describe('Xcode', () => {
     it('should return versions and paths related', async () => {
       const {execute} = require('../shell');
       mock(execute).mockImplementationOnce(async command => {
-        expect(command).toEqual('/foo/bar/Contents/Developer/usr/bin/xcodebuild -version');
+        expect(command).toEqual('"/foo/bar/Contents/Developer/usr/bin/xcodebuild" -version');
         return "Xcode 9.0\nBuild version 9A235\n";
       });
       mock(execute).mockImplementationOnce(async command => {
-        expect(command).toEqual('/baz/Contents/Developer/usr/bin/xcodebuild -version');
+        expect(command).toEqual('"/baz/Contents/Developer/usr/bin/xcodebuild" -version');
         return "Xcode 10.2\nBuild version 10E125\n";
       });
 
@@ -187,7 +187,7 @@ describe('Xcode', () => {
       const {getSelectCommand} = require('../xcode');
 
       const result = getSelectCommand('/foo/bar/baz');
-      const expected = 'sudo xcode-select -s /foo/bar/baz/Contents/Developer';
+      const expected = 'sudo xcode-select -s "/foo/bar/baz/Contents/Developer"';
 
       expect(result).toEqual(expected);
     });
@@ -197,7 +197,7 @@ describe('Xcode', () => {
     it('should switch to xcode and return version', async () => {
       const {execute} = require('../shell');
       mock(execute).mockImplementationOnce(async command => {
-        expect(command).toEqual('sudo xcode-select -s /foo/Contents/Developer');
+        expect(command).toEqual('sudo xcode-select -s "/foo/Contents/Developer"');
         return '';
       });
       mock(execute).mockImplementationOnce(async command => {
